@@ -40,7 +40,7 @@ public class Posicion {
 	public Posicion(Posicion posicion) {
 
 		if (posicion == null) {
-			throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
+			throw new NullPointerException("ERROR: No es posible copiar una posición nula.");
 		}
 		this.fila = posicion.getFila();
 		this.columna = posicion.getColumna();
@@ -74,8 +74,8 @@ public class Posicion {
 
 	@Override
 	public String toString() {
-		return "Posicion [fila=" + fila + ", columna=" + columna + "]";
+
+		return "fila=" + fila + ", columna=" + columna;
 	}
-	 
-	
-} 
+
+}
