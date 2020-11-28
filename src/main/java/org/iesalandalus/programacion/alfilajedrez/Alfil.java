@@ -1,10 +1,11 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 public class Alfil {
 
 	private Color color;
 	private Posicion posicion;
-
 
 	public Color getColor() {
 		return color;
@@ -27,7 +28,6 @@ public class Alfil {
 			throw new IllegalArgumentException("ERROR: No es posible una posición nula.");
 		}
 		this.posicion = posicion;
-	
 
 	}
 
@@ -61,6 +61,62 @@ public class Alfil {
 			posicion = new Posicion(1, columna);
 		} else if (color == Color.NEGRO) {
 			posicion = new Posicion(8, columna);
+		}
+	}
+
+	public void mover(Direccion direccion) throws OperationNotSupportedException {
+		if (direccion == null) {
+			throw new IllegalArgumentException("ERROR: No se puede asignar un movimiento nulo.");
+		}
+		switch (direccion) {
+		case ARRIBA_IZQUIERDA:
+			try {
+				this.posicion = new Posicion((posicion.getFila() + 1), (char) (posicion.getColumna() - 1));
+				if (this.posicion.getFila() < 1 | this.posicion.getFila() > 8 | this.posicion.getColumna() < 'a'
+						| this.posicion.getColumna() > 'h') {
+					throw new IllegalArgumentException("ERROR: Movimiento no válido.");
+				}
+			} catch (IllegalArgumentException exception) {
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+			}
+			break;
+		case ARRIBA_DERECHA:
+			try {
+				this.posicion = new Posicion((posicion.getFila() + 1), (char) (posicion.getColumna() + 1));
+				if (this.posicion.getFila() < 1 | this.posicion.getFila() > 8 | this.posicion.getColumna() < 'a'
+						| this.posicion.getColumna() > 'h') {
+					throw new IllegalArgumentException("ERROR: Movimiento no válido.");
+				}
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+			}
+			break;
+
+		case ABAJO_IZQUIERDA:
+			try {
+				this.posicion = new Posicion((posicion.getFila() - 1), (char) (posicion.getColumna() - 1));
+				if (this.posicion.getFila() < 1 | this.posicion.getFila() > 8 | this.posicion.getColumna() < 'a'
+						| this.posicion.getColumna() > 'h') {
+					throw new IllegalArgumentException("ERROR: Movimiento no válido.");
+				}
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+			}
+			break;
+		case ABAJO_DERECHA:
+			try {
+				this.posicion = new Posicion((posicion.getFila() - 1), (char) (posicion.getColumna() + 1));
+				if (this.posicion.getFila() < 1 | this.posicion.getFila() > 8 | this.posicion.getColumna() < 'a'
+						| this.posicion.getColumna() > 'h') {
+					throw new IllegalArgumentException("ERROR: Movimiento no válido.");
+				}
+			} catch (IllegalArgumentException e) {
+				throw new OperationNotSupportedException("ERROR: Movimiento no válido.");
+			}
+			break;
+
+		default:
+			break;
 		}
 	}
 
