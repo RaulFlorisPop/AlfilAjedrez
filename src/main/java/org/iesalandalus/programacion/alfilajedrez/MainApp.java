@@ -115,4 +115,9 @@ public class MainApp {
 		return movimiento;
 	}
 
+	private static void crearAlfilDefecto() {
+		alfil = new Alfil();
+		System.out.println("\nSe ha creado un nuevo alfil por defecto\n " + alfil);
+	}
+
 }
