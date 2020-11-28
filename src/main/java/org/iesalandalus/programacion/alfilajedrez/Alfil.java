@@ -4,10 +4,33 @@ public class Alfil {
 
 	private Color color;
 	private Posicion posicion;
+	private int fila;
+	private int columna;
 
-	private int MIN_FILA = 1;
-	private int MAX_FILA = 8;
-	private char MIN_COLUMNA = 'a';
-	private char MAX_COLUMNA = 'h';
+	public Color getColor() {
+		return color;
+	}
+
+	private void setColor(Color color) {
+		if (color == null) {
+			throw new IllegalArgumentException("ERROR: No es posible un color nulo.");
+		}
+		this.color = color;
+	}
+
+	public Posicion getPosicion() {
+		return posicion;
+	}
+
+	private void setPosicion(Posicion posicion) {
+
+		if (posicion == null) {
+			throw new IllegalArgumentException("ERROR: No es posible una posición nula.");
+		}
+		this.posicion = posicion;
+		this.fila = posicion.getFila();
+		this.columna = posicion.getColumna();
+
+	}
 
 }
