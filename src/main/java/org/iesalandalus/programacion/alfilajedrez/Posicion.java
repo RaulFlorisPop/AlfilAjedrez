@@ -25,16 +25,25 @@ public class Posicion {
 		else
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 	}
-	
-	
-	public Posicion () {
+
+	public Posicion() {
 		this.fila = 1;
-		this.columna= 'a';
+		this.columna = 'a';
 	}
-	
+
 	public Posicion(int fila, char columna) {
 
 		this.setFila(fila);
 		this.setColumna(columna);
+	}
+
+	public Posicion(Posicion posicion) {
+
+		if (posicion == null) {
+			throw new IllegalArgumentException("ERROR: No es posible copiar una posición nula.");
+		}
+		this.fila = posicion.getFila();
+		this.columna = posicion.getColumna();
+
 	}
 }
