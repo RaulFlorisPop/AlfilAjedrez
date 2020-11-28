@@ -33,4 +33,8 @@ public class Alfil {
 
 	}
 
+	public Alfil() {
+		color = Color.NEGRO;
+		posicion = new Posicion(8, 'f');
+	}
 }
