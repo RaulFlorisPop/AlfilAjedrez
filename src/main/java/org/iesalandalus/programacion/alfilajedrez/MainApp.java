@@ -1,5 +1,7 @@
 package org.iesalandalus.programacion.alfilajedrez;
 
+import javax.naming.OperationNotSupportedException;
+
 import org.iesalandalus.programacion.utilidades.Entrada;
 
 public class MainApp {
@@ -130,4 +132,16 @@ public class MainApp {
 		System.out.println("\nSe ha creado un nuevo alfil con el color y columna elegida\n " + alfil);
 	}
 
+	private static void mover() {
+		try {
+			Direccion direccion = elegirDireccion();
+			System.out.println("Indica cuantos pasos quieres dar en esa dirección: ");
+			int pasos = Entrada.entero();
+			alfil.mover(direccion, pasos);
+			System.out.println("El alfil se ha movido " + alfil);
+			mostrarMenu();
+		} catch (OperationNotSupportedException e) {
+			System.out.println("ERROR: Movimiento no válido");
+		}
+	}
 }
