@@ -93,6 +93,7 @@ public class MainApp {
 		System.out.println("2. ABAJO_DERECHA");
 		System.out.println("3. ABAJO_IZQUIERDA");
 		System.out.println("4. ARRIBA_IZQUIERDA");
+		mover();
 
 	}
 
@@ -144,4 +145,29 @@ public class MainApp {
 			System.out.println("ERROR: Movimiento no válido");
 		}
 	}
+
+	private static void ejecutarOpcion(int opcion) {
+		switch (opcion) {
+		case 1:
+			crearAlfilDefecto();
+			mostrarMenu();
+			break;
+		case 2:
+			crearAlfilColor();
+			mostrarMenu();
+			break;
+		case 3:
+			crearAlfilColorColumna();
+			mostrarMenu();
+			break;
+		case 4:
+			mostrarMenuDirecciones();
+			break;
+		case 5:
+			System.out.println("Saliendo del programa.");
+			System.exit(0);
+			break;
+		}
+	}
+
 }
