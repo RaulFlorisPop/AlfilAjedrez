@@ -25,4 +25,16 @@ public class Posicion {
 		else
 			throw new IllegalArgumentException("ERROR: Columna no válida.");
 	}
+	
+	
+	public Posicion () {
+		this.fila = 1;
+		this.columna= 'a';
+	}
+	
+	public Posicion(int fila, char columna) {
+
+		this.setFila(fila);
+		this.setColumna(columna);
+	}
 }
